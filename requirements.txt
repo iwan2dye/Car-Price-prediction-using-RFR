@@ -3,3 +3,4 @@ Flask
 numpy
 pickle-mixin
 gunicorn
+scikit-learn
