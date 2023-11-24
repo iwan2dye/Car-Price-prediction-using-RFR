@@ -1,7 +1,43 @@
 from flask import Flask , render_template,url_for , redirect,request
 import numpy
 import pickle
+from sklearn.preprocessing import MinMaxScaler
+import pandas
+import seaborn as sns
 # from flask_wtf.csrf import CSRFProtect
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+
+
+def predic(final_features):
+    df = pandas.read_csv("mappedData.csv")
+    df = df.dropna()
+    df = df.drop(["engine_fuel"],axis=1)
+    drop_list = ['УАЗ','Opel', 'Москвич', 'Dacia','Lancia','SsangYong', 'Daewoo','Geely', 'ВАЗ', 'Lifan', 'ЗАЗ','ГАЗ', 'Great Wall', 'Buick', 'Pontiac','Iveco',  'Saab', 'Infiniti', 'Chery', 'Peugeot']
+    for i in range(len(drop_list)):
+        df.drop(df.index[df["manufacturer_name"] == drop_list[i]],inplace=True)
+    outlairs = ["year_produced" , "odometer_value", "engine_capacity" , "price_usd"] 
+    for i in range(len(outlairs)):
+        Q1 = df[outlairs[i]].quantile(0.25)
+        Q3 = df[outlairs[i]].quantile(0.75)
+        IQR = Q3 - Q1
+        df = df[(df[outlairs[i]] >= Q1 - 1.5*IQR) & (df[outlairs[i]] <= Q3 + 1.5*IQR)]
+    df.drop_duplicates()
+    df["manufacturer_name"] = df["manufacturer_name"].astype(int)
+
+    scaler = MinMaxScaler()
+    rfr = RandomForestRegressor(n_estimators=20 , random_state=42)
+
+    x = df.drop("price_usd",axis=1)
+    y = df["price_usd"]
+
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 42)
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    rfr.fit(X_train_scaled,y_train)
+    
+    return (rfr.predict([final_features])[0])
+    
 
 
 
@@ -28,7 +64,7 @@ app.config.update(
 
 
 
-model = pickle.load(open("RFRmodel.pkl","rb"))
+# model = pickle.load(open("RFRmodel.pkl","rb"))
 
 
 @app.route("/", methods = ["GET","POST"])
@@ -109,13 +145,11 @@ def predict():
         final_features.append(l2.index(f10))
         
         
-        prediction = model.predict([final_features])
-        output = round(prediction[0],2)    
+        # prediction = model.predict([final_features])
+        output = predic(final_features)    
         return render_template('index.html',prediction_text="{}".format(output))
         
         
-
-
 
 
 

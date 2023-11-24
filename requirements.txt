@@ -4,3 +4,5 @@ numpy
 pickle-mixin
 gunicorn
 scikit-learn
+pandas
+seaborn
