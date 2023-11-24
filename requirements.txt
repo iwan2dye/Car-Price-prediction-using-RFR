@@ -1,4 +1,5 @@
 pip
 Flask
+numpy
 pickle-mixin
 gunicorn
