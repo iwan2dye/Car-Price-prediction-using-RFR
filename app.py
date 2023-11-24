@@ -1,10 +1,8 @@
 from flask import Flask , render_template,url_for , redirect,request
 import numpy
-import pickle
 from sklearn.preprocessing import MinMaxScaler
 import pandas
 import seaborn as sns
-# from flask_wtf.csrf import CSRFProtect
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
@@ -26,12 +24,12 @@ def predic(final_features):
     df["manufacturer_name"] = df["manufacturer_name"].astype(int)
 
     scaler = MinMaxScaler()
-    rfr = RandomForestRegressor(n_estimators=20 , random_state=42)
+    rfr = RandomForestRegressor(n_estimators=9 , random_state=42)
 
     x = df.drop("price_usd",axis=1)
     y = df["price_usd"]
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 42)
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     rfr.fit(X_train_scaled,y_train)
@@ -42,12 +40,12 @@ def predic(final_features):
 
 
 app = Flask(__name__)
-# csrf = CSRFProtect(app)
-# @app.after_request
-# def apply_caching(response):
-#     response.headers["X-Frame-Options"] = "SAMEORIGIN"
-#     response.headers["HTTP-HEADER"] = "VALUE"
-#     return response
+
+@app.after_request
+def apply_caching(response):
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["HTTP-HEADER"] = "VALUE"
+    return response
 
 
 
@@ -56,15 +54,9 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
 )
-#We can set secure cookies in response
-# response.set_cookie('key', 'value', secure=True, httponly=True, samesite='Lax')
 
 
 
-
-
-
-# model = pickle.load(open("RFRmodel.pkl","rb"))
 
 
 @app.route("/", methods = ["GET","POST"])
@@ -133,7 +125,7 @@ def predict():
         final_features.append(types.index(f8))
         
         
-        l = ["True","False"]
+        l = ["Yes","No"]
         l.sort()
         f9 = request.form["has_warranty"]
         final_features.append(l.index(f9))
@@ -146,7 +138,7 @@ def predict():
         
         
         # prediction = model.predict([final_features])
-        output = predic(final_features)    
+        output = round(predic(final_features),2)    
         return render_template('index.html',prediction_text="{}".format(output))
         
         

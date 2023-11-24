@@ -1,7 +1,6 @@
 pip
 Flask
 numpy
-pickle-mixin
 gunicorn
 scikit-learn
 pandas

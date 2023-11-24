@@ -64,18 +64,10 @@
     <div class="div1">
         <ol>
             <li>Scroll down this page</li>
-            <li>Select the correct Options from all the dropdown menus</li>
-            <ul type = "disc">
-                <li><b>manufacturer : </b>manufacturer of your car</li>
-                <li><b>Fuel Type : </b>what kind of fuel your car runs at? eg - pretrol,diesel etc.</li>
-                <li><b>City Of Registeration : </b>city/region your car was registered in?</li>
-                <li><b>Year Of Registeration : </b>Which year your car was registered in?</li>
-                <p>(if you don't know the city/region or year of registration  <a href="https://parivahan.gov.in/parivahan//en/content/license-registration-details" target = "_blank" >Click here</a>)</p>
-            </ul>
-            <br>
-            <p style = "color:red;">Note : make sure to choose correctly for the best result</p>
+            <li>Select the correct Options from all the dropdown menus and enter the correct numbers</li>
             <li>Click Value my car button</li>
         </ol>
+        <p style = "color:red;">Note : make sure to choose correctly for the best result</p>
     </div>
 
 
@@ -184,7 +176,7 @@
         <select id="has_warranty" name="has_warranty" class = "form-select">
             <option value="" disabled selected>Select body type</option>
             <script>
-                var transmission_type =["True","False"];
+                var transmission_type =["Yes","No"];
                 
                 transmission_type.sort().forEach(function(brand) {
                     document.write('<option value="' + brand + '">' + brand + '</option>');

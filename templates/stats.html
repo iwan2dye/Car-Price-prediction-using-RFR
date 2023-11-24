@@ -51,14 +51,56 @@
         </div>
     </nav>
 
+    <h3 class = "h3">Correlation Map</h3>
     <div class="div1">
-        <div>
             <p>The HeatMap below shows how all the feartures are correlated to each other</p>
-            <img class = "" src="{{ url_for('static', filename='images/graphs/corrGraph.png') }}" alt="">
-            <p style = "margin-top:20px;">We can clearly infer from the HeatMap that <b>Mileage</b> and <b>age</b> have a negetive correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these two feature increases the price of the vehicle will decrease.</p>
-            <p style = "margin-top:20px;">We can also infer from the HeatMap that <b>Year of Production</b> and <b>engine Capacity</b> have a  correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these two feature increases the price of the vehicle will decrease.</p>
-        </div>
+            <img class = "img-fluid" src="{{ url_for('static', filename='images/graphs/heatmap.png') }}" alt="">
+            <p style = "margin-top:20px;">We can clearly infer from the HeatMap that <b>Mileage</b>, <b>production year</b> and <b>transmission type</b> have a highest positive correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these three feature increases the price of the vehicle will also increase.</p>
+            <p style = "margin-top:20px;">We can also infer from the HeatMap that <b>color</b> and <b>engine Capacity</b> have a negetive correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these features increases the price of the vehicle will decrease.</p>
+    </div>
 
+
+    <div class="accordion div1" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Frequency Graphs
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <h5>Manufacturer's Frequency</h5>
+                <img class = "img-fluid" src="{{ url_for('static', filename='images/graphs/make_freq.png') }}" alt="">
+                <p>Observation: <b>Volkswagen, Renault and Ford</b> combined makes up most of the entries in the Dataset with <b>Porsche and Lincoln</b>being the least</p>
+                <img class = "img-fluid" src="{{ url_for('static', filename='images/graphs/color_freq.png') }}" alt="">
+                <p>acja</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
     </div>
 
 
@@ -71,6 +113,7 @@
           </div>
         </div>
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
