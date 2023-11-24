@@ -1,0 +1,71 @@
+body{
+    /* margin-right: 20px;
+    margin-left: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* color: rgb(255, 255, 255); */
+    /* background-color: aquamarine; */
+/* 
+    background-image: url("/static/images/back.png"); /* Replace with the path to your image */
+    background-size:auto;
+    background-repeat: no-repeat;
+    /* height: 100vh; */
+    background-attachment: fixed;
+    margin: 0; 
+    
+}
+
+*{
+    /* color: azure; */
+}
+
+li{
+    padding-top: 10px;
+}
+
+.h3{
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    padding-top: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: justify;
+}
+
+.div1{
+    padding-left: 20%;
+    text-align: justify;
+    padding-right: 20%;
+    /* padding-top: 25px; */
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    /* padding-bottom: 25px; */
+    
+}
+
+.input_form{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* padding-bottom: 25px; */
+}
+
+.navbar{
+    /* padding-left: 10px; */
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.footer{
+    /* padding-left: 10px; */
+    margin-left: -20px;
+    margin-right: -20px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValueMyCar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Pixelify+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    
+</head>
+<body class="d-flex flex-column justify-content-center text-center mybody">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/car4.gif') }}" alt="" width="80" height="30" class="d-inline-block align-text-top">
+                ValueMyCar
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('whatandwhy') }}">What&Why</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Other Info
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ url_for('stats') }}">Graphs</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('tables') }}">Tables</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('all_algos_used') }}">All Algos Used</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="div1">
+        <div>
+            <p>The HeatMap below shows how all the feartures are correlated to each other</p>
+            <img class = "" src="{{ url_for('static', filename='images/graphs/corrGraph.png') }}" alt="">
+            <p style = "margin-top:20px;">We can clearly infer from the HeatMap that <b>Mileage</b> and <b>age</b> have a negetive correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these two feature increases the price of the vehicle will decrease.</p>
+            <p style = "margin-top:20px;">We can also infer from the HeatMap that <b>Year of Production</b> and <b>engine Capacity</b> have a  correlation with the target variable i.e. Price of the vehicle which means that if the value of these any of these two feature increases the price of the vehicle will decrease.</p>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container-fluid footer">
+        <div class="row mt-5">
+          <div class="col-12 text-center bg-dark text-light py-3">
+            <p>&copy; 2023 Value My Car</p>
+          </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
