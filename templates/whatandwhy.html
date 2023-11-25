@@ -53,17 +53,21 @@
 
 
     <h3 class="h3">What Algorihtm is used?</h3> 
-    <div class="div1"> <i>"Value My Car"</i> uses Random Forest Regressor at its core to predict the price of the car and trained on a dataset collected from <a href="https://www.kaggle.com/" target = _blank>Kaggle</a></div>
+    <div class="div1"> <i>"Value My Car"</i> uses <b style = "color:darkgreen; text-decoration:underline;">XGBoost</b> at its core to predict the price of the car and trained on a dataset collected from <a href="https://www.kaggle.com/" target = _blank>Kaggle</a>.</div>
     
 
     <h3 class="h3" ,>Why?</h3>
-    <div class="div1">The Reason for using abc at its core to make predictions is simple. During our model building we used multiple algorithmns and measured, recorded and compared their preformance, out of which abc preformed the best and after hyperparameter-tuning the model seems to work better.</div>
+    <div class="div1">The Reason for using XGBoost at its core to make predictions is simple. During our model building we used multiple algorithmns and measured, recorded and compared their respective performance metrics, out of which XGBoost preformed the best and after hyperparameter-tuning the model seems to work better.</div>
 
     
     <h3 class="h3" ,>How?</h3>
-    <div class="div1"></div>
+    <div class = "div1">
+        XGBoost is an implementation of Gradient Boosted decision trees. This library was written in C++. It is a type of Software library that was designed basically to improve speed and model performance. It has recently been dominating in applied machine learning. XGBoost models majorly dominate in many Kaggle Competitions. In this algorithm, decision trees are created in sequential form. Weights play an important role in XGBoost. Weights are assigned to all the independent variables which are then fed into the decision tree which predicts results. The weight of variables predicted wrong by the tree is increased and the variables are then fed to the second decision tree. These individual classifiers/predictors then ensemble to give a strong and more precise model. It can work on regression, classification, ranking, and user-defined prediction problems.
+    </div>
   
     
+   
+   
     <div class="container-fluid footer">
         <div class="row mt-5">
           <div class="col-12 text-center bg-dark text-light py-3">

@@ -52,10 +52,11 @@
     </nav>
 
         <h3 class = "h3">Which algorithmns where used and tested during the training?</h3>
-        <div class="div1">The algorithmns that where tested on our dataset are Linear Regression ,...</div>
+        <div class="div1">The algorithmns that where tested on our dataset are Linear Regression , Random Forest Regressor , KNN and XGBoost.</div>
         <br>
         <h3 class="h3">How these Algorithmns works</h3>
-        <div class="div1"><b>Linear Regression</b></div>
+
+        <div class="div1" style = "color:green;font-size:large;"><b>Linear Regression</b></div>
         <div class="div1">Regression analysis is a statistical methodology that allows us to determine the strength and relationship of two variables. Regression is not limited to two variables, we could have 2 or more variables showing a relationship. The results from the regression help in predicting an unknown value depending on the relationship with the predicting variables. For example, someone's height and weight usually have a relationship. Generally, taller people tend to weigh more. We could use regression analysis to help predict the weight of an individual, given their height.
             <br><br>
             When there is a single input variable, the regression is referred to as Simple Linear Regression. We use the single variable (independent) to model a linear relationship with the target variable (dependent). We do this by fitting a model to describe the relationship. If there is more than predicting variable, the regression is referred to as Multiple Linear Regression.
@@ -65,12 +66,49 @@
 
 
 
-        <div class="div1"><b>Linear Regression</b></div>
-        <div class="div1">Regression analysis is a statistical methodology that allows us to determine the strength and relationship of two variables. Regression is not limited to two variables, we could have 2 or more variables showing a relationship. The results from the regression help in predicting an unknown value depending on the relationship with the predicting variables. For example, someone's height and weight usually have a relationship. Generally, taller people tend to weigh more. We could use regression analysis to help predict the weight of an individual, given their height.
-            <br><br>
-            When there is a single input variable, the regression is referred to as Simple Linear Regression. We use the single variable (independent) to model a linear relationship with the target variable (dependent). We do this by fitting a model to describe the relationship. If there is more than predicting variable, the regression is referred to as Multiple Linear Regression.
+        <div class="div1" style = "color:green;font-size:large;"><b>Random Forest Regressor</b></div>
+        <div class="div1">Random Forest is an ensemble technique capable of performing both regression and classification tasks with the use of multiple decision trees and a technique called Bootstrap and Aggregation, commonly known as bagging. The basic idea behind this is to combine multiple decision trees in determining the final output rather than relying on individual decision trees. 
+<br><br>
+            Random Forest has multiple decision trees as base learning models. We randomly perform row sampling and feature sampling from the dataset forming sample datasets for every model. This part is called Bootstrap.
+            
+            We need to approach the Random Forest regression technique like any other machine learning technique.
+            
+            <ol>
+                <li>Design a specific question or data and get the source to determine the required data.</li>
+                <li>Make sure the data is in an accessible format else convert it to the required format.</li>
+                <li>Specify all noticeable anomalies and missing data points that may be required to achieve the required data.</li>
+                <li>Create a machine-learning model.</li>
+                <li>Set the baseline model that you want to achieve.</li>
+                <li>Train the data machine learning model.</li>
+                <li>Provide an insight into the model with test data.</li>
+                <li>Now compare the performance metrics of both the test data and the predicted data from the model.</li>
+                <li>If it doesn't satisfy your expectations, you can try improving your model accordingly or dating your data, or using another data modeling technique.</li>
+                <li>At this stage, you interpret the data you have gained and report accordingly.</li>
+            </ol>
+            
         </div>
-        <img class = "div1"src="{{ url_for('static', filename='images/LR.jpg') }}" alt="">
+        <img class = "div1"src="{{ url_for('static', filename='images/RFR.webp') }}" alt=""> <br><br><br>
+
+
+
+        <div class="div1" style = "color:green;font-size:large;"><b>K-Nearest Neighbour</b></div>
+        <ul class = "div1">
+            <li>K-Nearest Neighbour is one of the simplest Machine Learning algorithms based on Supervised Learning technique.</li>
+            <li>K-NN algorithm assumes the similarity between the new case/data and available cases and puts the new case into the category that is most similar to the available categories.</li>
+            <li>K-NN algorithm stores all the available data and classifies a new data point based on the similarity. This means when new data appears then it can be easily classified into a well-suited category by using K-NN algorithm.</li>
+            <li>K-NN algorithm can be used for Regression as well as for Classification but mostly it is used for the Classification problems.</li>
+            <li>K-NN is a non-parametric algorithm, which means it does not make any assumption on underlying data.</li>
+            <li>It is also called a lazy learner algorithm because it does not learn from the training set immediately instead it stores the dataset and at the time of classification, it performs an action on the dataset.</li>
+            <li>KNN algorithm at the training phase just stores the dataset and when it gets new data, then it classifies that data into a category that is much similar to the new data.</li>
+        </ul>
+        <img class = "div1"src="{{ url_for('static', filename='images/KNN.png') }}" alt=""> <br><br><br>
+
+
+
+        <div class="div1" style = "color:green;font-size:large;"><b>XGBoost</b></div>
+        <div class = "div1">
+            XGBoost is an implementation of Gradient Boosted decision trees. This library was written in C++. It is a type of Software library that was designed basically to improve speed and model performance. It has recently been dominating in applied machine learning. XGBoost models majorly dominate in many Kaggle Competitions. In this algorithm, decision trees are created in sequential form. Weights play an important role in XGBoost. Weights are assigned to all the independent variables which are then fed into the decision tree which predicts results. The weight of variables predicted wrong by the tree is increased and the variables are then fed to the second decision tree. These individual classifiers/predictors then ensemble to give a strong and more precise model. It can work on regression, classification, ranking, and user-defined prediction problems.
+        </div>
         
 
 

@@ -1,9 +1,7 @@
 from flask import Flask , render_template,url_for , redirect,request
 import numpy
-from sklearn.preprocessing import MinMaxScaler
 import pandas
-import seaborn as sns
-from sklearn.ensemble import RandomForestRegressor
+import xgboost as xgb
 from sklearn.model_selection import train_test_split
 
 
@@ -23,18 +21,15 @@ def predic(final_features):
     df.drop_duplicates()
     df["manufacturer_name"] = df["manufacturer_name"].astype(int)
 
-    scaler = MinMaxScaler()
-    rfr = RandomForestRegressor(n_estimators=9 , random_state=42)
 
     x = df.drop("price_usd",axis=1)
     y = df["price_usd"]
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 42)
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
-    rfr.fit(X_train_scaled,y_train)
-    
-    return (rfr.predict([final_features])[0])
+    model = xgb.XGBRegressor()
+    model.fit(X_train,y_train)
+    # inp = numpy.array(final_features)
+    return (model.predict([final_features])[0])
     
 
 
@@ -89,7 +84,7 @@ def predict():
         transmission_types = ['automatic', 'mechanical']
         transmission_types.sort()
         f2 = str(request.form["transmission_type"])
-        print(f2,type(f2) , transmission_types)
+        # print(f2,type(f2) , transmission_types)
         final_features.append(transmission_types.index(f2))
         
         
@@ -116,7 +111,7 @@ def predict():
             
         
         f7 = request.form["engine_capacity"]
-        final_features.append(f7)
+        final_features.append(float(f7))
         
         types = ['universal', 'suv', 'sedan', 'hatchback', 'liftback', 'minivan',
                 'minibus', 'van', 'pickup', 'coupe', 'cabriolet', 'limousine']
@@ -125,7 +120,7 @@ def predict():
         final_features.append(types.index(f8))
         
         
-        l = ["Yes","No"]
+        l = ["True","False"]
         l.sort()
         f9 = request.form["has_warranty"]
         final_features.append(l.index(f9))
@@ -135,11 +130,11 @@ def predict():
         l2.sort()
         f10 = request.form["drivetrain"]
         final_features.append(l2.index(f10))
+
+
+        output = predic(final_features)
         
-        
-        # prediction = model.predict([final_features])
-        output = round(predic(final_features),2)    
-        return render_template('index.html',prediction_text="{}".format(output))
+        return render_template('index.html',prediction_text="{:.2f}".format(output))
         
         
 
