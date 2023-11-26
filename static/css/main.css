@@ -27,8 +27,9 @@ li{
 }
 
 .h3{
-    font-family: 'Noto Sans', sans-serif;
-    font-family: 'Pixelify Sans', sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'Noto Sans', sans-serif; */
+    /* font-family: 'Pixelify Sans', sans-serif; */
     font-family: 'Roboto Slab', serif;
     padding-top: 20px;
     padding-left: 20%;
@@ -43,8 +44,9 @@ li{
     /* padding-top: 25px; */
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: 'Noto Sans', sans-serif;
-    font-family: 'Pixelify Sans', sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'Noto Sans', sans-serif; */
+    /* font-family: 'Pixelify Sans', sans-serif; */
     font-family: 'Roboto Slab', serif;
     /* padding-bottom: 25px; */
     
@@ -76,8 +78,8 @@ li{
     /* Styles for small screens */
 
     .h3{
-        font-family: 'Noto Sans', sans-serif;
-        font-family: 'Pixelify Sans', sans-serif;
+        /* font-family: 'Noto Sans', sans-serif; */
+        /* font-family: 'Pixelify Sans', sans-serif; */
         font-family: 'Roboto Slab', serif;
         padding-top: 20px;
         padding-left: 10px;
@@ -93,8 +95,8 @@ li{
         /* padding-top: 25px; */
         margin-top: 20px;
         margin-bottom: 20px;
-        font-family: 'Noto Sans', sans-serif;
-        font-family: 'Pixelify Sans', sans-serif;
+        /* font-family: 'Noto Sans', sans-serif; */
+        /* font-family: 'Pixelify Sans', sans-serif; */
         font-family: 'Roboto Slab', serif;
         font-size: small;
         /* padding-bottom: 25px; */

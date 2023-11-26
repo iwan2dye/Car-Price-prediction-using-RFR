@@ -165,5 +165,10 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/AllAlgos/" , methods = ["GET","POST"])
+def AllAlgos():
+    return render_template("AllAlgos.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
